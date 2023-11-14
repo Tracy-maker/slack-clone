@@ -14,6 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import SidebarOption from "../SidebarOption/SidebarOption";
 
+
 const SidebarContainer = styled.div`
   flex: 0.3;
   color: white;

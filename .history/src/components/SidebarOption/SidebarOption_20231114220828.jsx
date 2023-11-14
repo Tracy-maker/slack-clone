@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 const SidebarOptionContainer = styled.div`
   display: flex;
@@ -27,20 +26,8 @@ const SidebarOptionChannel = styled.h3`
   font-weight: 300;
 `;
 
-function SidebarOption({ Icon, title, addChannelOption, id }) {
-  return (
-    <SidebarOptionContainer>
-      {Icon && <Icon fontSize="small" style={{ padding: 10 }} />}
-      {Icon ? (
-        <h3>{title}</h3>
-      ) : (
-        <SidebarOptionChannel>
-          <span>#</span>
-          {title}
-        </SidebarOptionChannel>
-      )}
-    </SidebarOptionContainer>
-  );
+function SidebarOption({ id, Icon, title, addChannelOption }) {
+  return <div></div>;
 }
 
 export default SidebarOption;

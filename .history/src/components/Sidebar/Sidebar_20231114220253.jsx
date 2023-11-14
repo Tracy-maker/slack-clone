@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import CreateIcon from "@mui/icons-material/Create";
@@ -12,7 +12,46 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
-import SidebarOption from "../SidebarOption/SidebarOption";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+import SidebarOption from "./SidebarOption";
+
+function Sidebar() {
+
+
+  return (
+    <SidebarContainer>
+      <SidebarHeader>
+        <SidebarInfo>
+          <h2>Yix-clone papa fam club</h2>
+          <h3>
+            <FiberManualRecordIcon />
+            {user.displayName}
+          </h3>
+        </SidebarInfo>
+        <CreateIcon />
+      </SidebarHeader>
+      <SidebarOption Icon={InsertCommentIcon} title="Threads" />
+      <SidebarOption Icon={InboxIcon} title="Mentions & reactions" />
+      <SidebarOption Icon={DraftsIcon} title="Saved items" />
+      <SidebarOption Icon={BookmarkBorderIcon} title="Channel browser" />
+      <SidebarOption Icon={PeopleAltIcon} title="People & user groups" />
+      <SidebarOption Icon={AppsIcon} title="Apps" />
+      <SidebarOption Icon={FileCopyIcon} title="File browser" />
+      <SidebarOption Icon={ExpandLessIcon} title="Show less" />
+      <hr />
+      <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
+      <hr />
+      <SidebarOption Icon={AddIcon} title="Add Channel" addChannelOption />
+      {channels?.docs.map((doc) => (
+        <SidebarOption key={doc.id} title={doc.data().name} id={doc.id} />
+      ))}
+    </SidebarContainer>
+  );
+}
+
+export default Sidebar;
 
 const SidebarContainer = styled.div`
   flex: 0.3;
@@ -33,6 +72,7 @@ const SidebarHeader = styled.div`
   display: flex;
   border-bottom: 1px solid #49274b;
   padding: 13px;
+  /* align-items: center; */
 
   > .MuiSvgIcon-root {
     padding: 8px;
@@ -66,35 +106,3 @@ const SidebarInfo = styled.div`
     color: green;
   }
 `;
-
-function Sidebar() {
-  return (
-    <SidebarContainer>
-      <SidebarHeader>
-        <SidebarInfo>
-          <h2>Yix-clone Papa Fam Club</h2>
-          <h3>
-            <FiberManualRecordIcon />
-          </h3>
-        </SidebarInfo>
-        <CreateIcon />
-      </SidebarHeader>
-      <SidebarOption Icon={InsertCommentIcon} title="Threads" />
-      <SidebarOption Icon={InboxIcon} title="Mentions & reactions" />
-      <SidebarOption Icon={DraftsIcon} title="Saved items" />
-      <SidebarOption Icon={BookmarkBorderIcon} title="Channel browser" />
-      <SidebarOption Icon={PeopleAltIcon} title="People & user groups" />
-      <SidebarOption Icon={AppsIcon} title="Apps" />
-      <SidebarOption Icon={FileCopyIcon} title="File browser" />
-      <SidebarOption Icon={ExpandLessIcon} title="Show less" />
-      <hr />
-      <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
-      <hr />
-      <SidebarOption Icon={AddIcon} title="Add Channel" addChannelOption />
-
-      <SidebarOption key="id" title="title name" id="id" />
-    </SidebarContainer>
-  );
-}
-
-export default Sidebar;

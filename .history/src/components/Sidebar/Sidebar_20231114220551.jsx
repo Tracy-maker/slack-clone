@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import CreateIcon from "@mui/icons-material/Create";
@@ -12,7 +12,7 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
-import SidebarOption from "../SidebarOption/SidebarOption";
+import SidebarOption from "./SidebarOption";
 
 const SidebarContainer = styled.div`
   flex: 0.3;
@@ -33,6 +33,7 @@ const SidebarHeader = styled.div`
   display: flex;
   border-bottom: 1px solid #49274b;
   padding: 13px;
+  /* align-items: center; */
 
   > .MuiSvgIcon-root {
     padding: 8px;
