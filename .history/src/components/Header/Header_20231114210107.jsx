@@ -1,7 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-import { Avatar } from "@mui/material";
-import { AccessTime, HelpOutline, Search } from "@mui/icons-material";
+import React from 'react'
+
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -67,23 +65,30 @@ const HeaderRight = styled.div`
 `;
 
 function Header() {
-  return (
-    <HeaderContainer>
-      <HeaderLeft>
-        <HeaderAvatar />
-        <AccessTime />
-      </HeaderLeft>
+    const [user, loading] = useAuthState(auth);
+  
+    return (
+      <HeaderContainer>
+        {/** Header Left */}
+        <HeaderLeft>
+          <HeaderAvatar onClick={()=> signOut(auth)} alt={user?.displayName} src={user?.photoURL}/>
+          <AccessTimeIcon />
+        </HeaderLeft>
+  
+        {/** Header Search */}
+        <HeaderSearch>
+          <SearchIcon />
+          <input placeholder="Search PAPAFAM" />
+        </HeaderSearch>
+  
+        {/** Header Right */}
+        <HeaderRight>
+          <HelpOutlineIcon />
+        </HeaderRight>
+      </HeaderContainer>
+    );
+  }
+  
+  export default Header;
 
-      <HeaderSearch>
-        <Search />
-        <input placeholder="Search......" />
-      </HeaderSearch>
-
-      <HeaderRight>
-        <HelpOutline />
-      </HeaderRight>
-    </HeaderContainer>
-  );
-}
-
-export default Header;
+export default Header

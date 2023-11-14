@@ -76,7 +76,7 @@ function Header() {
 
       <HeaderSearch>
         <Search />
-        <input placeholder="Search......" />
+        <input placeholder="Search PAPAFAM" />
       </HeaderSearch>
 
       <HeaderRight>

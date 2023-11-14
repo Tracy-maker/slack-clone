@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Avatar } from "@mui/material";
-import { AccessTime, HelpOutline, Search } from "@mui/icons-material";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import SearchIcon from "@mui/icons-material/Search";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -71,16 +73,16 @@ function Header() {
     <HeaderContainer>
       <HeaderLeft>
         <HeaderAvatar />
-        <AccessTime />
+        <AccessTimeIcon />
       </HeaderLeft>
 
       <HeaderSearch>
-        <Search />
-        <input placeholder="Search......" />
+        <SearchIcon />
+        <input placeholder="Search PAPAFAM" />
       </HeaderSearch>
 
       <HeaderRight>
-        <HelpOutline />
+        <HelpOutlineIcon />
       </HeaderRight>
     </HeaderContainer>
   );

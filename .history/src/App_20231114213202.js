@@ -47,7 +47,7 @@ function App() {
       <Login />
 
       <>
-        <Header />
+        <Header/>
         <AppBody>
           <Sidebar />
           <RouterProvider router={router} />

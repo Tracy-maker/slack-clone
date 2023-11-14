@@ -1,11 +1,15 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import styled from "styled-components";
-import Chat from "./components/Chat/Chat";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Spinner from "react-spinkit";
+
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Chat from "./components/Chat";
+import { auth } from "./services/firebase";
+import Login from "./components/Login";
 import "./App.css";
-import Login from "./components/Login/Login";
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
 
 const AppLoading = styled.div`
   display: grid;
@@ -34,7 +38,10 @@ const AppBody = styled.div`
   height: 100vh;
 `;
 
+
 function App() {
+ 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -42,17 +49,22 @@ function App() {
     },
   ]);
 
+
+
   return (
     <div className="app">
-      <Login />
+     
+        <Login />
+       
+        <>
+          <Header />
+          <AppBody>
+            <Sidebar />
+            <RouterProvider router={router} />
 
-      <>
-        <Header />
-        <AppBody>
-          <Sidebar />
-          <RouterProvider router={router} />
-        </AppBody>
-      </>
+          </AppBody>
+        </>
+      
     </div>
   );
 }
