@@ -88,7 +88,7 @@ function Chat() {
           <ChatBottom />
         </ChatMessages>
 
-        <ChatInput channelId={roomId} channelName="roomName" />
+        <ChatInput channelId={roomId} channelName={channelName} />
       </>
     </ChatContainer>
   );

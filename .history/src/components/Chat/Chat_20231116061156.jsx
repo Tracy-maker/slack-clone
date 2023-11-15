@@ -4,8 +4,6 @@ import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Message from "../Message/Message";
 import ChatInput from "../Chatinput/ChatInput";
-import { useSelector } from "react-redux";
-import { selectRoomId } from "../../features/appSlice";
 
 const ChatContainer = styled.div`
   flex: 0.7;
@@ -44,7 +42,7 @@ const HeaderRight = styled.div`
     font-size: 14px;
   }
 
-  > h5 > .MuiSvgIcon-root {
+  > p > .MuiSvgIcon-root {
     margin-right: 5px !important;
     font-size: 16px;
   }
@@ -57,8 +55,6 @@ const ChatBottom = styled.div`
 `;
 
 function Chat() {
-  const roomId = useSelector(selectRoomId);
-
   return (
     <ChatContainer>
       <>
@@ -70,10 +66,9 @@ function Chat() {
             <StarBorderOutlinedIcon />
           </HeaderLeft>
           <HeaderRight>
-            <h5>
-              <InfoOutlinedIcon />
-              Details
-            </h5>
+            <h3>
+              <InfoOutlinedIcon />Details
+            </h3>
           </HeaderRight>
         </Header>
 
@@ -88,7 +83,7 @@ function Chat() {
           <ChatBottom />
         </ChatMessages>
 
-        <ChatInput channelId={roomId} channelName="roomName" />
+        <ChatInput channelId="channelId" channelName="name" />
       </>
     </ChatContainer>
   );

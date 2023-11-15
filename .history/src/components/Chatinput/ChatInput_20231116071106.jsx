@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
-import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const ChatInputContainer = styled.div`
@@ -29,8 +29,6 @@ const ChatInputContainer = styled.div`
 `;
 
 function ChatInput({ channelId, channelName, chatRef }) {
-  const [input, setInput] = useState("");
-
   const sendMessage = async (e) => {
     e.preventDefault();
 
@@ -40,24 +38,11 @@ function ChatInput({ channelId, channelName, chatRef }) {
 
     const docRef = doc(db, "room", channelId);
     const colRef = collection(docRef, "messages");
-
-    addDoc(colRef, {
-      message: input,
-      timestamp: serverTimestamp(),
-      user: "123",
-      userImage: "https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg",
-    });
   };
   return (
     <ChatInputContainer>
       <form action="POST">
-        <input
-          placeholder={`Message #Room`}
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-          }}
-        />
+        <input placeholder={`Message #Room`} />
         <Button hidden type="submit" onClick={sendMessage}>
           SEND
         </Button>
