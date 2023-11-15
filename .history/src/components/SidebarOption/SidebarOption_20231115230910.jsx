@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { db } from "../../firebase";
-import { addDoc, collection } from "firebase/firestore";
 
 const SidebarOptionContainer = styled.div`
   display: flex;
