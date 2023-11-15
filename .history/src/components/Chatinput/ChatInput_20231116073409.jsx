@@ -54,7 +54,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
     <ChatInputContainer>
       <form action="POST">
         <input
-          placeholder={`Message ${channelName}`}
+          placeholder={`Message #Room`}
           value={input}
           onChange={(e) => {
             setInput(e.target.value);

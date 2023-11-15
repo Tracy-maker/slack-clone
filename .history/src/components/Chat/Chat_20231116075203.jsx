@@ -7,8 +7,8 @@ import ChatInput from "../Chatinput/ChatInput";
 import { useSelector } from "react-redux";
 import { selectRoomId } from "../../features/appSlice";
 import { db } from "../../firebase";
-import { collection, doc, orderBy, query } from "firebase/firestore";
-import { useCollection, useDocument } from "react-firebase-hooks/firestore";
+import { doc } from "firebase/firestore";
+import { useDocument } from "react-firebase-hooks/firestore";
 
 const ChatContainer = styled.div`
   flex: 0.7;
@@ -63,17 +63,14 @@ function Chat() {
   const roomId = useSelector(selectRoomId);
   const docRef = roomId && doc(db, "rooms", roomId);
   const [roomDetails] = useDocument(roomId && docRef);
-  const [roomMessage, loading] = useCollection(
-    roomId && query(collection(docRef, "message"), orderBy("timestamp", "asc"))
-  );
-  
+
   return (
     <ChatContainer>
       <>
         <Header>
           <HeaderLeft>
             <h4>
-              <strong># {roomDetails?.data().name}</strong>
+              <strong>#{roomDetails?.data().name}</strong>
             </h4>
             <StarBorderOutlinedIcon />
           </HeaderLeft>
@@ -86,23 +83,17 @@ function Chat() {
         </Header>
 
         <ChatMessages>
-          {roomMessage?.docs.map((doc) => {
-            const { message, timestamp, user, userImage } = doc.data();
-            return (
-              <Message
-                key={doc.id}
-                message={message}
-                timestamp={timestamp}
-                user={user}
-                userImage={userImage}
-              />
-            );
-          })}
+          <Message
+            message="message"
+            timestamp="timestamp"
+            user="user"
+            userImage="userImage"
+          />
 
           <ChatBottom />
         </ChatMessages>
 
-        <ChatInput channelId={roomId} channelName={roomDetails?.data().name} />
+        <ChatInput channelId={roomId} channelName="roomName" />
       </>
     </ChatContainer>
   );

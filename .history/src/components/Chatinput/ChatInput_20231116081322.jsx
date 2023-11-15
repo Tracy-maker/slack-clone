@@ -48,7 +48,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
       userImage: "https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg",
     });
 
-    setInput("");
+    setInput(" ");
   };
   return (
     <ChatInputContainer>

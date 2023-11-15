@@ -69,6 +69,7 @@ function Chat() {
   
   return (
     <ChatContainer>
+      console.log(roomMessage);
       <>
         <Header>
           <HeaderLeft>

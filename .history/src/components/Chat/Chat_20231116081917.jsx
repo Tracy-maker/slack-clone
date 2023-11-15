@@ -68,6 +68,7 @@ function Chat() {
   );
   
   return (
+    console.log(roomMessage);
     <ChatContainer>
       <>
         <Header>

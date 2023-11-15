@@ -66,7 +66,7 @@ function Chat() {
   const [roomMessage, loading] = useCollection(
     roomId && query(collection(docRef, "message"), orderBy("timestamp", "asc"))
   );
-  
+console.log(roomMessage)
   return (
     <ChatContainer>
       <>

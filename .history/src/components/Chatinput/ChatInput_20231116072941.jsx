@@ -38,7 +38,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
       return false;
     }
 
-    const docRef = doc(db, "rooms", channelId);
+    const docRef = doc(db, "room", channelId);
     const colRef = collection(docRef, "messages");
 
     addDoc(colRef, {
@@ -48,13 +48,13 @@ function ChatInput({ channelId, channelName, chatRef }) {
       userImage: "https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg",
     });
 
-    setInput("");
+    setInput("")
   };
   return (
     <ChatInputContainer>
       <form action="POST">
         <input
-          placeholder={`Message ${channelName}`}
+          placeholder={`Message #Room`}
           value={input}
           onChange={(e) => {
             setInput(e.target.value);

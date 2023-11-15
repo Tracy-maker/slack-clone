@@ -66,7 +66,7 @@ function Chat() {
   const [roomMessage, loading] = useCollection(
     roomId && query(collection(docRef, "message"), orderBy("timestamp", "asc"))
   );
-  
+
   return (
     <ChatContainer>
       <>
@@ -86,18 +86,17 @@ function Chat() {
         </Header>
 
         <ChatMessages>
-          {roomMessage?.docs.map((doc) => {
-            const { message, timestamp, user, userImage } = doc.data();
-            return (
-              <Message
-                key={doc.id}
-                message={message}
-                timestamp={timestamp}
-                user={user}
-                userImage={userImage}
-              />
-            );
-          })}
+ {roomMessage?.docs.map((doc)=>{
+  const {message,timestamp,user,userImage}
+ })}
+
+          <Message
+            key={doc.id}
+            message="message"
+            timestamp="timestamp"
+            user="user"
+            userImage="userImage"
+          />
 
           <ChatBottom />
         </ChatMessages>
