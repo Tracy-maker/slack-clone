@@ -61,10 +61,11 @@ function Chat() {
   const roomId = useSelector(selectRoomId);
   const docRef = roomId && doc(db, "rooms", roomId);
   const [roomDetails] = useDocument(roomId && docRef);
-  const [roomMessage, loading] = useCollection(
+  const [roomMessage, loading, error] = useCollection(
     roomId && query(collection(docRef, "messages"), orderBy("timestamp", "asc"))
   );
-
+  
+  console.log("Error:", error); // Log any errors
   return (
     <ChatContainer>
       <>

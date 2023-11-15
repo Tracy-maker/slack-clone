@@ -62,7 +62,7 @@ function Chat() {
   const docRef = roomId && doc(db, "rooms", roomId);
   const [roomDetails] = useDocument(roomId && docRef);
   const [roomMessage, loading] = useCollection(
-    roomId && query(collection(docRef, "messages"), orderBy("timestamp", "asc"))
+    roomId && query(collection(docRef, "message"), orderBy("timestamp", "asc"))
   );
 
   return (
@@ -83,7 +83,7 @@ function Chat() {
           </HeaderRight>
         </Header>
 
-        <div>
+        <ChatMessages>
           {roomMessage?.docs.map((doc) => {
             const { message, timestamp, user, userImage } = doc.data();
             return (
@@ -98,7 +98,7 @@ function Chat() {
           })}
 
           <ChatBottom />
-        </div>
+        </ChatMessages>
 
         <ChatInput channelId={roomId} channelName={roomDetails?.data().name} />
       </>

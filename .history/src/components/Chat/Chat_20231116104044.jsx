@@ -31,7 +31,7 @@ const ChatInputContainer = styled.div`
 function ChatInput({ channelId, channelName, chatRef }) {
   const [input, setInput] = useState("");
 
-  const sendMessage = (e) => {
+  const sendMessage = async (e) => {
     e.preventDefault();
 
     if (!channelId) {
@@ -41,7 +41,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
     const docRef = doc(db, "rooms", channelId);
     const colRef = collection(docRef, "messages");
 
-    addDoc(colRef, {
+    await addDoc(colRef, {
       message: input,
       timestamp: serverTimestamp(),
       user: "123",
@@ -50,9 +50,10 @@ function ChatInput({ channelId, channelName, chatRef }) {
 
     setInput("");
   };
+
   return (
     <ChatInputContainer>
-      <form action="POST">
+      <form onSubmit={sendMessage}>
         <input
           placeholder={`Message ${channelName}`}
           value={input}
@@ -60,7 +61,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
             setInput(e.target.value);
           }}
         />
-        <Button hidden type="submit" onClick={sendMessage}>
+        <Button hidden type="submit">
           SEND
         </Button>
       </form>
