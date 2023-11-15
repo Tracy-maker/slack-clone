@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const ChatInputContainer = styled.div`
   border-radius: 20px;
@@ -27,11 +28,16 @@ const ChatInputContainer = styled.div`
 `;
 
 function ChatInput({ channelId, channelName, chatRef }) {
+ 
+
   return (
     <ChatInputContainer>
       <form action="POST">
-        <input />
-        <Button hidden type="submit">
+        <input
+         
+       
+        />
+        <Button hidden type="submit" >
           SEND
         </Button>
       </form>

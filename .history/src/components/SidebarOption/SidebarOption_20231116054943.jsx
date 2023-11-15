@@ -5,6 +5,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { enterRoom } from "../../features/appSlice";
 
+
 const SidebarOptionContainer = styled.div`
   display: flex;
   font-size: 12px;

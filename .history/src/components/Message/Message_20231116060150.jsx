@@ -29,7 +29,8 @@ function Message({ message, timestamp, user, userImage }) {
       <img src={userImage} alt="" />
       <MessageInfo>
         <h4>
-          <span>113</span>
+          {user} <span>113
+          </span>
         </h4>
         <p>{message}</p>
       </MessageInfo>

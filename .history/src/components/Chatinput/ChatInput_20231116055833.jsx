@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const ChatInputContainer = styled.div`
   border-radius: 20px;

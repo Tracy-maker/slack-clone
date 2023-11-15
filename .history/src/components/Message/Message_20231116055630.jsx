@@ -29,7 +29,7 @@ function Message({ message, timestamp, user, userImage }) {
       <img src={userImage} alt="" />
       <MessageInfo>
         <h4>
-          <span>113</span>
+          {user} <span>{new Date(timestamp?.toDate()).toUTCString()}</span>
         </h4>
         <p>{message}</p>
       </MessageInfo>

@@ -5,6 +5,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Message from "../Message/Message";
 import ChatInput from "../Chatinput/ChatInput";
 
+
 const ChatContainer = styled.div`
   flex: 0.7;
   flex-grow: 1;
@@ -73,13 +74,14 @@ function Chat() {
         </Header>
 
         <ChatMessages>
+         
           <Message
             message="message"
             timestamp="timestamp"
             user="user"
             userImage="userImage"
           />
-
+        
           <ChatBottom />
         </ChatMessages>
 

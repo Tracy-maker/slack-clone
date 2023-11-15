@@ -73,13 +73,14 @@ function Chat() {
         </Header>
 
         <ChatMessages>
+          return (
           <Message
             message="message"
             timestamp="timestamp"
             user="user"
             userImage="userImage"
           />
-
+          );
           <ChatBottom />
         </ChatMessages>
 

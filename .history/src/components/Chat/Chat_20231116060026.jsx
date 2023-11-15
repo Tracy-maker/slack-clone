@@ -3,7 +3,7 @@ import styled from "styled-components";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Message from "../Message/Message";
-import ChatInput from "../Chatinput/ChatInput";
+import ChatInput from "../ChatInput/ChatInput";
 
 const ChatContainer = styled.div`
   flex: 0.7;
@@ -73,13 +73,14 @@ function Chat() {
         </Header>
 
         <ChatMessages>
+          return (
           <Message
             message="message"
             timestamp="timestamp"
             user="user"
             userImage="userImage"
           />
-
+          );
           <ChatBottom />
         </ChatMessages>
 

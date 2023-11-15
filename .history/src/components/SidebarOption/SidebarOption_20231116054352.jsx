@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { enterRoom } from "../../features/appSlice";
 
 const SidebarOptionContainer = styled.div`
   display: flex;
@@ -41,11 +40,7 @@ function SidebarOption({ Icon, title, addChannelOption, id }) {
       addDoc(collection(db, "rooms"), { name: channelName });
     }
   };
-  const selectChannel = () => {
-    if (id) {
-      dispatch(enterRoom({ roomId: id }));
-    }
-  };
+  const selectChannel = () => {};
 
   return (
     <SidebarOptionContainer

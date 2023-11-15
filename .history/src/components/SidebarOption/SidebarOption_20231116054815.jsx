@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { enterRoom } from "../../features/appSlice";
+import { enterRoom } from "../features/appSlice";
 
 const SidebarOptionContainer = styled.div`
   display: flex;
