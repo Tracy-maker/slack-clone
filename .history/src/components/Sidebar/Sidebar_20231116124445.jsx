@@ -72,8 +72,8 @@ const SidebarInfo = styled.div`
 `;
 
 function Sidebar() {
-  const [user] = useAuthState(auth);
-  const [channels] = useCollection(collection(db, "rooms"), {
+  const [user]= useAuthState(auth);
+  const [channels, loading, error] = useCollection(collection(db, "rooms"), {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
   return (
@@ -83,7 +83,6 @@ function Sidebar() {
           <h2>Yix-clone Club</h2>
           <h3>
             <FiberManualRecordIcon />
-            {user.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />

@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Avatar } from "@mui/material";
 import { AccessTime, HelpOutline, Search } from "@mui/icons-material";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-import { signOut } from "firebase/auth";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -70,16 +67,11 @@ const HeaderRight = styled.div`
 `;
 
 function Header() {
-  const [user] = useAuthState(auth);
-
+  const [user, loading] = useAuthState(auth);
   return (
     <HeaderContainer>
       <HeaderLeft>
-        <HeaderAvatar
-          onClick={() => signOut(auth)}
-          alt={user?.displayName}
-          src={user?.photoURL}
-        />
+        <HeaderAvatar />
         <AccessTime />
       </HeaderLeft>
 

@@ -46,7 +46,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
     addDoc(colRef, {
       message: input,
       timestamp: serverTimestamp(),
-      user: user.displayName,
+      user: "123",
       userImage: user.photoURL,
     });
 

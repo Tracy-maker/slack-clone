@@ -11,7 +11,7 @@ const LoginContainer = styled.div`
   place-items: center;
 `;
 
-const LoginInnerContainer = styled.div`
+const LoginInnerContaiber = styled.div`
   padding: 100px;
   text-align: center;
   background-color: white;
@@ -36,27 +36,29 @@ function Login() {
   const onSignIn = (e) => {
     e.preventDefault();
 
-    signInWithPopup(auth, provider).catch((error) => {
-      alert(error.message);
-    });
+    signInWithPopup(auth, provider)
+    .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
     <LoginContainer>
-      <LoginInnerContainer>
+      <LoginInnerContaiber>
         <img
           src="https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg"
           alt=""
         />
-        <h1>Sign in to the Slack-Clone</h1>
+        <h1>Sign in to the Slack Clone</h1>
         <p>clone.slack.com</p>
 
         <Button type="submit" onClick={onSignIn}>
           Sign in with Google
         </Button>
-      </LoginInnerContainer>
+      </LoginInnerContaiber>
     </LoginContainer>
   );
 }
 
 export default Login;
+

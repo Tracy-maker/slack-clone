@@ -31,7 +31,7 @@ const ChatInputContainer = styled.div`
 
 function ChatInput({ channelId, channelName, chatRef }) {
   const [input, setInput] = useState("");
-  const [user] = useAuthState(auth);
+  const [user]=useAuthState(auth)
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -46,8 +46,8 @@ function ChatInput({ channelId, channelName, chatRef }) {
     addDoc(colRef, {
       message: input,
       timestamp: serverTimestamp(),
-      user: user.displayName,
-      userImage: user.photoURL,
+      user: "123",
+      userImage:user.photoURL
     });
 
     setInput("");

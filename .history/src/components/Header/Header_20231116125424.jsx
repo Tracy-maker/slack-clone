@@ -70,7 +70,7 @@ const HeaderRight = styled.div`
 `;
 
 function Header() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   return (
     <HeaderContainer>
@@ -78,7 +78,7 @@ function Header() {
         <HeaderAvatar
           onClick={() => signOut(auth)}
           alt={user?.displayName}
-          src={user?.photoURL}
+          scr={user?.photoURL}
         />
         <AccessTime />
       </HeaderLeft>

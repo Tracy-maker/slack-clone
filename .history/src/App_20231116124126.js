@@ -56,7 +56,7 @@ function App() {
             alt="logo"
           />
 
-          <Spinner name="ball-triangle-path" color="purple" />
+          <Spinner name="pacman" color="purple" />
         </AppLoadingContents>
       </AppLoading>
     );

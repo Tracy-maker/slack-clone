@@ -73,7 +73,7 @@ const SidebarInfo = styled.div`
 
 function Sidebar() {
   const [user] = useAuthState(auth);
-  const [channels] = useCollection(collection(db, "rooms"), {
+  const [channels, loading, error] = useCollection(collection(db, "rooms"), {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
   return (

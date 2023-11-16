@@ -8,7 +8,6 @@ import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
-import Spinner from "react-spinkit";
 
 const AppLoading = styled.div`
   display: grid;
@@ -55,8 +54,8 @@ function App() {
             src="https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg"
             alt="logo"
           />
-
-          <Spinner name="ball-triangle-path" color="purple" />
+         <Spinner name="ball-pulse-sync" />
+<Spinner name="ball-pulse-sync" color="steelblue"/>
         </AppLoadingContents>
       </AppLoading>
     );
@@ -64,17 +63,15 @@ function App() {
 
   return (
     <div className="app">
-      {!user ? (
-        <Login />
-      ) : (
-        <>
-          <Header />
-          <AppBody>
-            <Sidebar />
-            <RouterProvider router={router} />
-          </AppBody>
-        </>
-      )}
+      <Login />
+
+      <>
+        <Header />
+        <AppBody>
+          <Sidebar />
+          <RouterProvider router={router} />
+        </AppBody>
+      </>
     </div>
   );
 }

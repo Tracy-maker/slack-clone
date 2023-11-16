@@ -56,7 +56,7 @@ function App() {
             alt="logo"
           />
 
-          <Spinner name="ball-triangle-path" color="purple" />
+          <Spinner name="pacman" color="purple" />
         </AppLoadingContents>
       </AppLoading>
     );
@@ -64,17 +64,17 @@ function App() {
 
   return (
     <div className="app">
-      {!user ? (
-        <Login />
-      ) : (
-        <>
-          <Header />
-          <AppBody>
-            <Sidebar />
-            <RouterProvider router={router} />
-          </AppBody>
-        </>
-      )}
+
+      {!user?():()}
+      <Login />
+
+      <>
+        <Header />
+        <AppBody>
+          <Sidebar />
+          <RouterProvider router={router} />
+        </AppBody>
+      </>
     </div>
   );
 }
