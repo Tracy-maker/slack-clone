@@ -47,9 +47,12 @@ function ChatInput({ channelId, channelName, chatRef }) {
       user: "123",
       userImage: "https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg",
     });
+   
 
     setInput("");
-    chatRef?.current?.scrollIntoView({ behavior: "smooth" });
+    chatRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
   };
   return (
     <ChatInputContainer>

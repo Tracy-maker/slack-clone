@@ -50,6 +50,7 @@ function ChatInput({ channelId, channelName, chatRef }) {
 
     setInput("");
     chatRef?.current?.scrollIntoView({ behavior: "smooth" });
+    
   };
   return (
     <ChatInputContainer>

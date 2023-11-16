@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -58,17 +58,13 @@ const ChatBottom = styled.div`
 `;
 
 function Chat() {
-  const chatRef = useRef(null);
+  const chatRef = useRef(null)
   const roomId = useSelector(selectRoomId);
   const docRef = roomId && doc(db, "rooms", roomId);
   const [roomDetails] = useDocument(roomId && docRef);
   const [roomMessage, loading] = useCollection(
     roomId && query(collection(docRef, "messages"), orderBy("timestamp", "asc"))
   );
-
-  useEffect(() => {
-    chatRef?.current?.scrollIntoView({ behavior: "smooth" });
-  }, [roomId, loading]);
 
   return (
     <ChatContainer>
@@ -102,14 +98,10 @@ function Chat() {
             );
           })}
 
-          <ChatBottom ref={chatRef} />
+          <ChatBottom />
         </div>
 
-        <ChatInput
-          chatRef={chatRef}
-          channelId={roomId}
-          channelName={roomDetails?.data().name}
-        />
+        <ChatInput channelId={roomId} channelName={roomDetails?.data().name} />
       </>
     </ChatContainer>
   );

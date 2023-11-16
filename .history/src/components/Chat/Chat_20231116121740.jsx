@@ -70,6 +70,7 @@ function Chat() {
     chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   }, [roomId, loading]);
 
+
   return (
     <ChatContainer>
       <>
@@ -102,7 +103,7 @@ function Chat() {
             );
           })}
 
-          <ChatBottom ref={chatRef} />
+          <ChatBottom ref={chatRef}/>
         </div>
 
         <ChatInput

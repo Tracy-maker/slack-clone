@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
@@ -28,7 +28,7 @@ const ChatInputContainer = styled.div`
   }
 `;
 
-function ChatInput({ channelId, channelName, chatRef }) {
+const ChatInput= forwardRef({ channelId, channelName}, ref )=> {
   const [input, setInput] = useState("");
 
   const sendMessage = (e) => {

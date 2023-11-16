@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -66,10 +66,6 @@ function Chat() {
     roomId && query(collection(docRef, "messages"), orderBy("timestamp", "asc"))
   );
 
-  useEffect(() => {
-    chatRef?.current?.scrollIntoView({ behavior: "smooth" });
-  }, [roomId, loading]);
-
   return (
     <ChatContainer>
       <>
@@ -102,14 +98,10 @@ function Chat() {
             );
           })}
 
-          <ChatBottom ref={chatRef} />
+          <ChatBottom />
         </div>
 
-        <ChatInput
-          chatRef={chatRef}
-          channelId={roomId}
-          channelName={roomDetails?.data().name}
-        />
+        <ChatInput channelId={roomId} channelName={roomDetails?.data().name} />
       </>
     </ChatContainer>
   );

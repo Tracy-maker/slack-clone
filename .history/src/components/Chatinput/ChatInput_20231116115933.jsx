@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
@@ -28,7 +28,7 @@ const ChatInputContainer = styled.div`
   }
 `;
 
-function ChatInput({ channelId, channelName, chatRef }) {
+const ChatInput = forwardRef(({ channelId, channelName }, ref) => {
   const [input, setInput] = useState("");
 
   const sendMessage = (e) => {
@@ -48,9 +48,14 @@ function ChatInput({ channelId, channelName, chatRef }) {
       userImage: "https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg",
     });
 
+    // Using ref passed from parent component
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+
     setInput("");
-    chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <ChatInputContainer>
       <form action="POST">
@@ -67,6 +72,6 @@ function ChatInput({ channelId, channelName, chatRef }) {
       </form>
     </ChatInputContainer>
   );
-}
+});
 
 export default ChatInput;

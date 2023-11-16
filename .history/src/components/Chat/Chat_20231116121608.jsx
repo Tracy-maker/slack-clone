@@ -65,10 +65,11 @@ function Chat() {
   const [roomMessage, loading] = useCollection(
     roomId && query(collection(docRef, "messages"), orderBy("timestamp", "asc"))
   );
-
+  
   useEffect(() => {
     chatRef?.current?.scrollIntoView({ behavior: "smooth" });
   }, [roomId, loading]);
+
 
   return (
     <ChatContainer>
@@ -102,7 +103,7 @@ function Chat() {
             );
           })}
 
-          <ChatBottom ref={chatRef} />
+          <ChatBottom />
         </div>
 
         <ChatInput
