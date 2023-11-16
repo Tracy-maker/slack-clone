@@ -9,7 +9,7 @@ import { selectRoomId } from "../../features/appSlice";
 import { db } from "../../firebase";
 import { collection, doc, orderBy, query } from "firebase/firestore";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
-import ChatInput from "../Chatinput/ChatInput";
+import ChatInput from "../ChatInput/ChatInput";
 
 const ChatContainer = styled.div`
   flex: 0.7;
